@@ -6,6 +6,7 @@ public class Task {
   private String description;
   private int urgency;
   private Date deadline;
+  private boolean status;
   private String datePattern = "MM/DD/yyyy kk:mm";
   SimpleDateFormat converter = new SimpleDateFormat(datePattern);
   
@@ -14,6 +15,7 @@ public class Task {
     description = "";
     urgency = 0;
     deadline = null;
+    status = false;
   }
   public Task(String assignment, String details, int importance, String duedate) {
 	  name = assignment;
@@ -25,6 +27,7 @@ public class Task {
 	  catch (ParseException a) {
 		  a.printStackTrace();
 	  }
+	  status = false;
   }
   public String getName() {
 	  return name;
@@ -37,6 +40,9 @@ public class Task {
   }
   public Date getDate() {
 	  return deadline;
+  }
+  public boolean getStatus() {
+	  return status;
   }
   public void setName(String x) {
 	  name = x;
@@ -54,5 +60,8 @@ public class Task {
 	  catch (ParseException a) {
 		  a.printStackTrace();
 	  }
+  }
+  public void setStatus(boolean x) {
+	  status = x;
   }
 }
